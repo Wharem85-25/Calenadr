@@ -1,0 +1,31 @@
+{
+  "name": "calendario",
+  "version": "1.0.0",
+  "description": "calendar to schedule appointments or any activity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wharem85-25/Calenadr.git"
+  },
+  "keywords": [
+    "Javascript",
+    "html",
+    "react",
+    "scss",
+    "webpack",
+    "Mui"
+  ],
+  "author": "Wilmer Monterrozo",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/Wharem85-25/Calenadr/issues"
+  },
+  "homepage": "https://github.com/Wharem85-25/Calenadr#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
