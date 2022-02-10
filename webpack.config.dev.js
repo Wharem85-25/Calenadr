@@ -9,7 +9,13 @@ module.exports = {
 		filename: 'bundle.js',
 	},
 	resolve: {
-		extensions: ['.js', '.jsx']
+		extensions: ['.js', '.jsx'],
+		alias: {
+			'@img': path.resolve(__dirname, 'src/assets/img'),
+			'@styles': path.resolve(__dirname, 'src/assets/styles'),
+			'@components': path.resolve(__dirname, 'src/components'),
+			'@containers': path.resolve(__dirname, 'src/containers'),
+		}
 	},
 	mode: "development",
 	module: {
@@ -34,6 +40,10 @@ module.exports = {
 					'css-loader',
 					'sass-loader'
 				]
+			},
+			{
+				test: /\.(png|jpg|svg|gif)$/,
+				type: 'asset'
 			}
 		]
 	},
