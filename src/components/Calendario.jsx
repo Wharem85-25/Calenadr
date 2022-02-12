@@ -3,6 +3,10 @@ import {Calendar, momentLocalizer} from "react-big-calendar";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment'
 require("moment/locale/es-mx");
+require("moment/locale/cs.js");
+require("moment/locale/fr.js");
+require("moment/locale/nl.js");
+require("moment/locale/en-au");
 
 const localizer = momentLocalizer(moment)
 const myEventsList = [
@@ -27,8 +31,8 @@ const Calendario = () => {
 				startAccessor="start"
 				endAccessor="end"
 				messages={{
-					next:"sig",
-					previous:"ant",
+					next:"Sig",
+					previous:"Ant",
 					today:"Hoy",
 					month:"Mes",
 					week:"Semana",
