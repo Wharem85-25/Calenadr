@@ -1,12 +1,12 @@
 import React from 'react';
 import Title from '@components/Title.jsx';
-import Calendario from '@components/Calendario.jsx';
+import Calendar from '@components/Calendar.jsx';
 
 const App = () => {
 	return (
 		<div className="container">
 			<Title />
-			<Calendario />
+			<Calendar />
 		</div>
 	);
 };
