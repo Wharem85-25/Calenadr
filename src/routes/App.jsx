@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from '@components/Title.jsx';
 import Calendar from '@components/Calendar.jsx';
-import Add from './Add';
+import Add from '../containers/Add';
 
 const App = () => {
 	return (

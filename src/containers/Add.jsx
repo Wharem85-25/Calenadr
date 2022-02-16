@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import AddDate from '@components/AddDate.jsx';
+import Categories from '@components/Categories.jsx';
 import AddD from '@img/add.png'
 import '@styles/Add.scss';
 
@@ -14,6 +15,7 @@ const Add = () => {
 		<div className="container-add">
 			<img className="image" src={AddD} onClick={handleToggle} />
 			{toggle && <AddDate />}
+			<Categories />
 		</div>
 	);
 };
