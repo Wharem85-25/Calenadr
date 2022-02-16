@@ -1,14 +1,14 @@
 import React from 'react';
 import Title from '@components/Title.jsx';
 import Calendar from '@components/Calendar.jsx';
-import AddDate from '@components/AddDate.jsx';
+import Add from './Add';
 
 const App = () => {
 	return (
 		<div className="container">
 			<Title />
+			<Add />
 			<Calendar />
-			<AddDate />
 		</div>
 	);
 };

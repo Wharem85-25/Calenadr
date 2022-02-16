@@ -5,7 +5,7 @@ const AddDate = () => {
 	return (
 		<div className="createDate">
 			<div className="form-container">
-				<h1 className="main-title">Create your appointment</h1>
+				<h1 className="main-title">Create your activity</h1>
 				<form action="/" className="form">
 					<div>
 						<label for="title" className="label">Title</label>
