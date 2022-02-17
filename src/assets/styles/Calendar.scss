@@ -1,0 +1,16 @@
+@import 'global';
+
+.bigCalendar-container {
+	width: 100%;
+	display:flex;
+}
+
+.calendar {
+	width: 85%;
+	padding-top: 50px;
+	padding-left: 50px;
+}
+
+.add {
+	width: 15%;
+}

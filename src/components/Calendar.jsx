@@ -5,6 +5,8 @@ import HTML5Backend from 'react-dnd-html5-backend';
 import { DragDropContext } from 'react-dnd';
 import Calendar from 'react-big-calendar';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
+import Add from '@containers/Add';
+import '@styles/Calendar.scss';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 Calendar.momentLocalizer(moment);
@@ -46,8 +48,9 @@ class Dnd extends React.Component {
 
 	render() {
 		return (
-			<div style={{ height: `${800}px` }} className="bigCalendar-container">
+			<div style={{ height: `${900}px` }} className="bigCalendar-container">
 				<DragAndDropCalendar
+					className="calendar"
 					selectable
 					events={this.state.events}
 					onEventDrop={this.moveEvent}
@@ -64,6 +67,7 @@ class Dnd extends React.Component {
 					day:"Dia"
 				}}
 				/>
+				<Add className="add"/>
 			</div>
 		);
 	}

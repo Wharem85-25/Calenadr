@@ -1,0 +1,40 @@
+@import 'global';
+
+.container-categories {
+	padding-top: 35px;
+	font-family: var(--font);
+	font-size: var(--lar);
+}
+
+.categories {
+	padding-left: 15px;
+	
+}
+
+.color {
+	margin-left: 10px;
+	margin-top: 25px;
+	margin-bottom: 20px;
+	width: 200px;
+	height: 10px;
+}
+
+.color-math {
+	background-color: red;
+}
+
+.color-comp {
+	background-color: blue;
+}
+
+.color-com {
+	background-color: rgb(255, 145, 0);
+}
+
+.color-art {
+	background-color: rgb(207, 0, 226);
+}
+
+.color-his {
+	background-color: rgb(5, 126, 35);
+}
