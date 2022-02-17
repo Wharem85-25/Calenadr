@@ -1,6 +1,6 @@
 import React from 'react';
 import Title from '@components/Title.jsx';
-import Calendar from '@components/Calendar.jsx';
+import Calendar from '@containers/Calendar.jsx';
 
 const App = () => {
 	return (

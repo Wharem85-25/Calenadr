@@ -7,23 +7,16 @@
 
 .image {
 	width: 45px;
-	margin-top: 18px;
 	margin-right: 5px;
 }
 
 .button-add {
-	width: 200px;
 	margin-left: 20px;
-	background-color: rgb(168, 17, 206);
-	display: flex;
-	border-radius: 50px;
-	border-color: rgb(168, 17, 206);
-	cursor: pointer;
 }
 
 .text {
 	font-family: var(--font);
-	font-size: var(--med);
+	font-size: var(--sml);
 	color: var(--white);
 }
 
