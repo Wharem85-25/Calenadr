@@ -12,6 +12,24 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 Calendar.momentLocalizer(moment);
 const DragAndDropCalendar = withDragAndDrop(Calendar);
 
+// function Event({ event }) {
+//   return (
+//     <span>
+//       <strong>{event.title}</strong>
+//       {event.desc && ':  ' + event.desc}
+//     </span>
+//   )
+// }
+
+// function EventAgenda({ event }) {
+//   return (
+//     <span>
+//       <em style={{ color: 'black', fontWeight: 'bold', fontSize: '24px' }}>{event.title}</em>
+//       <p>{event.desc}</p>
+//     </span>
+//   )
+// }
+
 class Dnd extends React.Component {
 	constructor(props) {
 		super(props);
@@ -46,6 +64,21 @@ class Dnd extends React.Component {
 		});
 	}
 
+	handleSelect = ({ start, end }) => {
+    const title = window.prompt('New Event name')
+    if (title)
+      this.setState({
+        events: [
+          ...this.state.events,
+          {
+            start,
+            end,
+            title,
+          },
+        ],
+      })
+  }
+
 	render() {
 		return (
 			<div style={{ height: `${900}px` }} className="bigCalendar-container">
@@ -55,17 +88,26 @@ class Dnd extends React.Component {
 					events={this.state.events}
 					onEventDrop={this.moveEvent}
 					resizable
+					scrollToTime={new Date(1970, 1, 1, 6)}
 					onEventResize={this.resizeEvent}
 					defaultView={Calendar.Views.MONTH}
 					defaultDate={new Date(2022, 2, 10)}
+					onSelectEvent={event => alert(event.title)}
+          onSelectSlot={this.handleSelect}
+					// components={{
+      		// 	event: Event,
+      		// 	agenda: {
+        	// 		event: EventAgenda,
+      		// 	},
+    			// }}
 					messages={{
 					next:"Sig",
 					previous:"Ant",
-					today:"Hoy",
-					month:"Mes",
-					week:"Semana",
-					day:"Dia"
-				}}
+					today:"Today",
+					month:"Month",
+					week:"Week",
+					day:"Day"
+					}}
 				/>
 				<Add className="add"/>
 			</div>
