@@ -35,7 +35,7 @@ const Add = () => {
 			<div className="button-add">
 				<Button sx={styleButton} variant="contained" color="secondary" onClick={handleOpen}>
 					<p className="text">
-						Add your activity
+						Add
 					</p>
 					<img className="image" src={AddD} />
 				</Button>
