@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import events from '@hooks/events.js';
-import change from '@hooks/ChangeColor.js';
 import '@styles/AddDate.scss';
 
 let idCounter = 0;
@@ -28,26 +27,8 @@ const AddDate = () => {
 			course: cour
 		}
 
-		// if(info.course == "Mathematics") {
-		// 	let mat = document.getElementsByClassName('rbc-event')
-		// 	mat.setAttribute("style", "background-color: red;");
-		// } else if (info.course == "History") {
-		// 	let his = document.getElementsByClassName('rbc-event');
-		// 	his.setAttribute("style", "background-color: rgb(5, 126, 35);");
-		// } else if (info.course == "Communication") {
-		// 	let com = document.getElementsByClassName('rbc-event');
-		// 	com.setAttribute("style", "background-color: rgb(255, 145,0);");
-		// } else if (info.course == "Artistic expression") {
-		// 	let art = document.getElementsByClassName('rbc-event');
-		// 	art.setAttribute("style", "background-color: rgb(207, 0, 226);");
-		// } else if (info.course == "Computing") {
-		// 	let comp = document.getElementsByClassName('rbc-event');
-		// 	comp.setAttribute("style", "background-color: 'blue';");
-		// }
-
 		events.push(info);
 		console.log(info.course)
-		// change();
 	}
 
 	return (

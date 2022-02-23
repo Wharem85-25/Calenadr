@@ -6,28 +6,11 @@ import { DragDropContext } from 'react-dnd';
 import Calendar from 'react-big-calendar';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import Add from '@containers/Add';
-import AddDate from '@components/AddDate';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Backdrop from '@mui/material/Backdrop';
 import '@styles/Calendar.scss';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 Calendar.momentLocalizer(moment);
 const DragAndDropCalendar = withDragAndDrop(Calendar);
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 300,
-	height: 600,
-  bgcolor: 'background.paper',
-  boxShadow: 28,
-  p: 6,
-};
 
 function Event({ event }) {
   return (
@@ -38,13 +21,56 @@ function Event({ event }) {
   )
 }
 
-function EventAgenda({ event }) {
-  return (
-    <span>
-      <em style={{ color: 'black', fontWeight: 'bold', fontSize: '24px' }}>{event.title}</em>
-      <p>{event.desc}</p>
-    </span>
-  )
+function EventAgenda({event}) {
+	if(event.course == "Mathematics") {
+		return (
+			<span>
+				<em style={{ color: 'black', fontWeight: 'bold', fontSize: '24px' }}>{event.title}</em>
+				<p>{event.desc}</p>
+				<p style={{color: 'red', fontWeight: 'bold', fontSize: '20px'}}>{event.course}</p>
+			</span>
+		)
+	} else if(event.course == "History") {
+		return (
+			<span>
+				<em style={{ color: 'black', fontWeight: 'bold', fontSize: '24px' }}>{event.title}</em>
+				<p>{event.desc}</p>
+				<p style={{color: 'rgb(5, 126, 35)', fontWeight: 'bold', fontSize: '20px'}}>{event.course}</p>
+			</span>
+		)
+	} else if(event.course == "Communication") {
+		return (
+			<span>
+				<em style={{ color: 'black', fontWeight: 'bold', fontSize: '24px' }}>{event.title}</em>
+				<p>{event.desc}</p>
+				<p style={{color: 'rgb(255, 145,0)', fontWeight: 'bold', fontSize: '20px'}}>{event.course}</p>
+			</span>
+		)
+	} else if(event.course == "Artistic expression") {
+		return (
+			<span>
+				<em style={{ color: 'black', fontWeight: 'bold', fontSize: '24px' }}>{event.title}</em>
+				<p>{event.desc}</p>
+				<p style={{color: 'rgb(207, 0, 226)', fontWeight: 'bold', fontSize: '20px'}}>{event.course}</p>
+			</span>
+		)
+	} else if(event.course == "Computing") {
+		return (
+			<span>
+				<em style={{ color: 'black', fontWeight: 'bold', fontSize: '24px' }}>{event.title}</em>
+				<p>{event.desc}</p>
+				<p style={{color: 'blue', fontWeight: 'bold', fontSize: '20px'}}>{event.course}</p>
+			</span>
+		)
+	} else {
+		return (
+			<span>
+				<em style={{ color: 'black', fontWeight: 'bold', fontSize: '24px' }}>{event.title}</em>
+				<p>{event.desc}</p>
+				<p id="cour">{event.course}</p>
+			</span>
+		)
+	}
 }
 
 
@@ -84,19 +110,7 @@ class Dnd extends React.Component {
 
 
 	handleSelect = ({ start, end }) => {
-	// 	const [open, setOpen] = useState(false);
-	// const handleClose = () => setOpen(true);
     const title = window.prompt('New Event name')
-		// const title = <Modal open={open} onClose={handleClose} closeAfterTransition BackdropComponent={Backdrop}
-    //     					BackdropProps={{
-    //      					 timeout: 600,
-    //     					}}>
-		// 								<Fade in={open}>
-		// 									<Box sx={style}>
-		// 										<AddDate />
-		// 									</Box>
-		// 								</Fade>
-		// 							</Modal>
     if (title)
       this.setState({
         events: [
