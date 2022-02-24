@@ -70,6 +70,20 @@
 	margin-bottom: 30px;
 }
 
+.container-activity {
+	text-align: center;
+}
+
+.text-activity {
+	font-family: var(--font);
+	color: var(--white);
+	font-size: 24px;
+}
+
+.confetti {
+	width: 200px;
+}
+
 @media (max-width: 640px) {
 	.form-container {
 		height: 100%;
