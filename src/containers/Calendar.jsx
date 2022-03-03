@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import moment from 'moment'
 import events from '../hooks/events';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -111,6 +111,11 @@ class Dnd extends React.Component {
 
 	handleSelect = ({ start, end }) => {
     const title = window.prompt('New Event name')
+		// const title = () => {
+		// 	return (
+		// 		<Add></Add>
+		// 	)
+		// }
     if (title)
       this.setState({
         events: [
@@ -136,7 +141,7 @@ class Dnd extends React.Component {
 					scrollToTime={new Date(1970, 1, 1, 6)}
 					onEventResize={this.resizeEvent}
 					defaultView={Calendar.Views.MONTH}
-					defaultDate={new Date(2022, 2, 10)}
+					defaultDate={new Date(new Date().setHours(new Date().getHours() - 3))}
 					onSelectEvent={event => alert(event.title)}
           onSelectSlot={this.handleSelect}
 					components={{

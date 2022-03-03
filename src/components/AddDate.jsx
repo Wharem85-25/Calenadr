@@ -29,7 +29,6 @@ const AddDate = () => {
 	const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-	const [toggle, setToggle] = useState(false);
 	const [title, setTitle] = useState('');
 	const [date, setDate] = useState('');
 	const [dateEnd, setDateEnd] = useState('');
