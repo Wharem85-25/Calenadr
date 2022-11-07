@@ -28,6 +28,6 @@ export default [
     end: new Date(2022, 2, 9),
     desc: "Long test",
     course: "Communication"
-  },
+  }
 ];
 

@@ -6,6 +6,8 @@ import { DragDropContext } from 'react-dnd';
 import Calendar from 'react-big-calendar';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import Add from '@containers/Add';
+import AddButton from '@components/AddButton'
+import Categories from '@components/Categories.jsx';
 import '@styles/Calendar.scss';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
@@ -78,7 +80,8 @@ class Dnd extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			events: events
+			events: events,
+			isOpen: false,
 		};
 
 		this.moveEvent = this.moveEvent.bind(this);
@@ -92,10 +95,9 @@ class Dnd extends React.Component {
 		const nextEvents = [...events];
 		nextEvents.splice(idx, 1, updatedEvent);
 
-		this.setState({
-			events: nextEvents
-		});
+
 	}
+
 	resizeEvent = (resizeType, { event, start, end }) => {
 		const {events } = this.state;
 
@@ -109,25 +111,31 @@ class Dnd extends React.Component {
 	}
 
 
-	handleSelect = ({ start, end }) => {
-    const title = window.prompt('New Event name')
-		// const title = () => {
-		// 	return (
-		// 		<Add></Add>
-		// 	)
-		// }
-    if (title)
-      this.setState({
-        events: [
-          ...this.state.events,
-          {
-            start,
-            end,
-            title,
-        },
-      ],
-    })
+	handleSelect = ({event, start, end }) => {
+    // const title = window.prompt('New Event name')
+
+		 this.setState({
+			isOpen: true
+		})
+    // if (title)
+    //   this.setState({
+    //     events: [
+    //       ...this.state.events,
+    //       {
+    //         start,
+    //         end,
+    //         title,
+    //     },
+    //   ],
+    // })
   }
+
+	handleOpen = () => this.setState({
+			isOpen: true
+		})
+	handleClose = () => this.setState({
+			isOpen: false
+		})
 
 	render() {
 		return (
@@ -159,7 +167,15 @@ class Dnd extends React.Component {
 					day:"Day"
 					}}
 				/>
-				<Add className="add"/>
+				{/* <MenuContainer>
+						<AddButton />
+						<Categories />
+				</MenuContainer>
+				<Modal isOpen></Modal> */}
+				<Add className="add" isOpen={this.state.isOpen} handleOpen={this.handleOpen} handleClose={this.handleClose}>
+					<AddButton />
+					<Categories />
+				</Add>
 			</div>
 		);
 	}

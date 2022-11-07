@@ -1,20 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import events from '@hooks/events.js';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import confetti from '@img/confettil.gif'
+import Alert from '@mui/material/Alert';
 import '@styles/AddDate.scss';
+
+const styleAlert = {
+	fontWeight: 800,
+
+}
 
 const style = {
   position: 'absolute',
-  top: '50%',
+  top: '10%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'black',
-  border: '2px solid #000',
-  boxShadow: 24,
+  width: 500,
   p: 4,
 };
 
@@ -45,8 +47,11 @@ const AddDate = () => {
 			course: cour
 		}
 
-		events.push(info);
-		console.log(info.course)
+		if(info.start > info.end) {
+			console.log("Las fechas no coinciden")
+		} else {
+			events.push(info);
+		}
 	}
 
 	return (
@@ -83,12 +88,12 @@ const AddDate = () => {
 							aria-describedby="modal-modal-description"
 						>
 							<Box sx={style}>
-								<Typography id="modal-modal-title" variant="h6" component="h2">
-									<div className="container-activity">
-										<p className="text-activity">Activity has been created</p>
-										<img src={confetti} className="confetti" />
-									</div>
-								</Typography>
+								{date < dateEnd ?
+								<Alert style={styleAlert} variant="filled" severity="success">
+									Your activity has been successfully created
+								</Alert> : <Alert variant="filled" severity="error">
+        					Your activity has the wrong date
+      					</Alert>}
 							</Box>
 						</Modal>
 				</form>
@@ -98,3 +103,10 @@ const AddDate = () => {
 };
 
 export default AddDate;
+
+								{/* <Typography id="modal-modal-title" variant="h6" component="h2">
+									<div className="container-activity">
+										<p className="text-activity">Activity has been created</p>
+										<img src={confetti} className="confetti" />
+									</div>
+								</Typography> */}
